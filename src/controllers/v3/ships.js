@@ -40,7 +40,7 @@ module.exports = {
 
       // Fuel slowly decreases over the hour
       const fuel = multiplier * (j + 50) + Math.random() * 4;
-      ship.fuel = fuel.toFixed(2);
+      ship.fuel = parseFloat(fuel.toFixed(2));
 
       // This is only available via MongoDB
       delete ship.course_deg;
@@ -56,11 +56,11 @@ module.exports = {
       for (let index = 0; index < 4; index++) {
         ship.thrust[index] = {
           engine: `Main Engine ${index + 1}`,
-          power: (60 + Math.random() * 40).toFixed(2)
+          power: parseFloat((60 + Math.random() * 40).toFixed(2))
         };
       }
 
-      ship.sattelite_latency = (250 + Math.random() * 50).toFixed(2);
+      ship.sattelite_latency = parseFloat((250 + Math.random() * 50).toFixed(2));
       ship.weather = weather_states[Math.round(multiplier / 8.5)];
     });
     ctx.body = res;
