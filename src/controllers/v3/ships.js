@@ -32,7 +32,7 @@ module.exports = {
 
     let i = 0;
     let j = 1;
-    const multiplier = new Date().getMinutes();
+    const multiplier = 60 - new Date().getMinutes();
     const min_value = multiplier >= 10 ? multiplier - 10 : 0;
     res.forEach(ship => {
       const ip = `192.168.${i}.${j}`;
